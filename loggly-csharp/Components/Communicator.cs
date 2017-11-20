@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
-using System.Web;
 using Loggly.Responses;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -77,7 +76,7 @@ namespace Loggly
                 }
                 sb.Append(kvp.Key);
                 sb.Append('=');
-                sb.Append(HttpUtility.UrlEncode(kvp.Value.ToString()));
+                sb.Append(WebUtility.UrlEncode(kvp.Value.ToString()));
                 sb.Append("&");
             }
             return sb.Remove(sb.Length - 1, 1).ToString();
